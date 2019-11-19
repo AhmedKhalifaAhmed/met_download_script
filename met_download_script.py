@@ -10,6 +10,7 @@ courses_ = [
 
 import json
 import os
+import getpass
 import requests
 import re
 from bs4 import BeautifulSoup
@@ -173,8 +174,8 @@ def main():
     # Log in
     browser.open('http://met.guc.edu.eg')
     browser.select_form(nr=0)
-    browser.form['LoginUserControl1$usernameTextBox'] = str(input('Enter your email: '))
-    browser.form['LoginUserControl1$passwordTextBox'] = str(input('Enter your password: '))
+    browser.form['LoginUserControl1$usernameTextBox'] = str(input('Email: '))
+    browser.form['LoginUserControl1$passwordTextBox'] = getpass.getpass(prompt='Password: ')
     browser.submit()
     # Nerd stuff
     global dict_
